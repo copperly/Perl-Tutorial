@@ -1,0 +1,69 @@
+=head1 NAME
+
+Perl::Tutorial::CommandLineInput - Accepting input from the command line
+
+=head1 SYNOPSIS
+
+  #!/usr/bin/perl
+  #
+  # Accepting input
+
+  # Remember Strict and Warnings!
+  use strict;
+  use warnings;
+
+  print @ARGV;
+
+  # for clarity let's finish with a new line
+
+  print "\n";
+
+=head1 DESCRIPTION
+
+=head2 Running the program
+
+Copy the above program into a text editor and save it in a filenamed "input".
+Open a terminal window and remember to set the permissions:
+
+  chmod u+x input
+
+Run the program like this:
+
+  ./input one two three
+
+You should see "onetwothree" printed to the console.
+
+=head2 @ARGV
+
+ARGV stands for "Arguement Vector". It is a special array created with anything
+following the script name and divided by white space. "one two three" become the
+first three elements in the array. For example we could have done this:
+
+  print $ARGV[1];
+
+The program would then print out "two". (Remember Perl arrays are zero based!)
+
+
+You probably want to do something with the input. We can loop over the items
+like this:
+
+  foreach my $arg(@ARGV){
+    print "$arg\n";
+  }
+
+=head1 SEE ALSO
+
+L<Perl::Tutorial>
+L<Perl::Tutorial::Scalars>
+
+=head1 AUTHOR
+
+Michael Holt
+
+=head1 COPYRIGHT AND LICENSING
+
+Copyright (C) 2011 Copperly Ltd.
+
+This documentation is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+

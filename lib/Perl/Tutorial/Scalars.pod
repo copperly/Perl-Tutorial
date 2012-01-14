@@ -1,0 +1,143 @@
+=head1 NAME
+
+Perl::Tutorial::Scalars - Perl Variables
+
+=head1 SYNOPSIS
+
+  #!/usr/bin/perl
+  #
+  # Using scalar variables
+
+  use strict;
+  use warnings;
+
+  # use 'my' to initialize variables and '=' to assign values.
+  my $hello = "Hello, World!\n"
+  my $a = "Hello";
+  my $b = "World";
+
+  # This will print "Hello, World!";
+  print "$hello\n";
+
+  # So will this!
+  print "$a, $b!\n";
+
+  # You could use a . to concatenate the variables
+  print $a . ", " . $b . "!\n";
+
+  print 'Single quotes do not print the scalar value: $a';
+
+  # Scalars can be numbers, with or without quotes
+  my $x = 2;
+  my $y = "3";
+
+  # You can perform operations on them
+  print $x+$y;
+  print "\n";
+  print $x*$y;
+  print "\n";
+
+  # and you can mix-and-match
+  print "$x+$y=" . ($x+$y) . "\n";
+
+=head1 DESCRIPTION
+
+=head2 Running the program
+
+Save the program as "scalars" and then run it in one of these ways
+
+ ./scalars
+ perl scalars
+
+(If you receive an error make sure you made the file executable!)
+
+You should see several lines showing some basic usage of scalar variables.
+
+=head2 What are scalars?
+
+Scalar variables are the basic variable type in Perl. They can be either strings
+or numbers and can be easily interchanged. Perl is a weakly typed language which
+means you do not need to declare what data type a variable will be.
+
+Scalars are declared with a $ and one or more characters, usually beginning with
+a letter. They are also case sensitive, so $a is not the same as $A.
+
+Scalars are not interpolated, or interpreted, inside single quotes ('). Single
+quotes denot a literal string, meaning it will be stored or printed exactly as
+written.
+
+=head2 Operators
+
+Perl provides the following arithmetic operators:
+
+  my $a = 3;
+  my $b = 6;
+  my $x;
+
+  $x = $a + $b;  # $x = 9   Addition
+  $x = $a * $b;  # $x = 18  Multiplication
+  $x = $b - $a;  # $x = 3   Subtraction 
+  $x = $b / $a;  # $x = 2   Division
+  $x = $b % $a;  # $x = 3   Modulos
+  $x = $a ** $b; # $x = 729 Exponents
+
+You can also operate directly on the scalar in several ways:
+
+  $a++; # return $a then increment it
+  ++$a; # increment $a then return it
+  $a--; # return $a then decrement it
+  --$a; # decrement $a then return it
+
+  $a += $b; # increment $a by $b
+  $b -= $a; # decrement $b by $a
+
+  $a = $b; # assign the value of $b to $a
+
+The following operators treat the scalar as a string:
+
+  my $a = 3;
+  my $b = 6;
+  my $x;
+
+  $x = $a . $b; # $x = 36     Concatenation
+  $x = $a x $b; # $x = 333333 Repetition
+  $a .= $b;     # $a = 36     Append
+
+Because Perl is weakly typed you can even perform arithmatical operations on
+strings:
+
+  my $a = 'aaa';
+  $a++;
+  print "$a\n";
+
+The above will print "aab". 
+
+=head2 Useful functions
+
+Sometimes you need to know how long a string is. This can be done with the
+length() function:
+
+  my $a = "Hello!";
+  print length($a) . "\n"; # prints 6
+
+You might need to know if a variable has been given a value. Used defined():
+
+  my $a;
+  print defined($a) . "\n"; # returns false and prints nothing
+  $a = "Hello!";
+  print defined($a) . "\n"; # prints 1 for true
+
+=head1 SEE ALSO
+
+L<Perl::Tutorial>
+
+=head1 AUTHOR
+
+Michael Holt
+
+=head1 COPYRIGHT AND LICENSING
+
+Copyright (C) 2011 Copperly Ltd.
+
+This documentation is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
